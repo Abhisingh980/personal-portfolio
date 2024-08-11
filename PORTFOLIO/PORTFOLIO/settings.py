@@ -37,8 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'livereload'
+    'livereload',
 ]
+
+EXTAR_APPS = [
+    'FRONTCONECTION',
+]
+
+INSTALLED_APPS += EXTAR_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
