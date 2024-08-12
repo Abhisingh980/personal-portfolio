@@ -1,0 +1,44 @@
+/* Add custom styles for the animated navbar */
+.navbar-nav .nav-item {
+    position: relative;
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+    transition:
+        color 0.3s,
+        background-color 0.3s;
+}
+
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #51c7db;
+    transition: width 0.3s;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+    text-decoration-color: #51c7db;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #51c7db;
+    background-color: rgba(0, 123, 255, 0.1);
+}
+.navbar-nav .nav-link{
+    color:#51c7db;
+    font-size: 18px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+}
+.navbar-nav{
+    align-items: center;
+}
+```

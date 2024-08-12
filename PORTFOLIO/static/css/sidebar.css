@@ -1,0 +1,39 @@
+/* Container */
+body {
+    margin: 0;
+}
+.container {
+    display: flex;
+    margin-left: 0px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 150x;
+    background-color: #51c7db;
+    padding: 30px;
+    height: 100vh; /* Full height */
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #0a0a0a;
+    font-size: 18px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+}
+
+/* Main content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
