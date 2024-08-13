@@ -1,0 +1,55 @@
+/* Add custom styles for the animated image */
+.image-container {
+    position: relative;
+    overflow: hidden; /* Ensure the image doesn’t overflow */
+    margin-top: 20px;
+    text-align: center;
+}
+
+.animated-image {
+    width: 100%;
+    max-width: 600px; /* Adjust based on your layout */
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s forwards;
+}
+
+/* Keyframes for the fade-in and slide-up effect */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
+    font-size: 2.5rem;
+    /* Add a gradient effect to the text */
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+h3 {
+    text-align: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+    /* other font-family */
+    font-family: "italic", sans-serif;
+    font-size: 1.5rem;
+}
+p {
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: "Roboto", sans-serif;
+}

@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %} {% load static %} {% block content %}
+<!-- Projects start -->
+
+<header>
+    <h1>My Projects</h1>
+</header>
+<section class="projects-grid">
+    <div class="project-box">
+        <a href="https://github.com/yourusername/project1" target="_blank">
+            <img src="path/to/project1-image.jpg" alt="Project 1" />
+            <div class="overlay">
+                <h3>Project 1</h3>
+                <p>
+                    A brief description of Project 1. This is where you
+                    highlight key features and what makes it special.
+                </p>
+            </div>
+        </a>
+    </div>
+    <div class="project-box">
+        <a href="https://github.com/yourusername/project2" target="_blank">
+            <img src="path/to/project2-image.jpg" alt="Project 2" />
+            <div class="overlay">
+                <h3>Project 2</h3>
+                <p>
+                    A brief description of Project 2. Describe its
+                    functionalities and unique aspects.
+                </p>
+            </div>
+        </a>
+    </div>
+    <!-- Add more project boxes as needed -->
+</section>
+
+{% endblock %}

@@ -1,9 +1,20 @@
-{% extends 'base/base.html' %} {% block content %}
+{% extends 'base/base.html' %} {% load static %} {% block content %}
 <div class="container">
     {% include 'base/sidebar.html' %}
     <main class="main-content">
-        <div class="content bg-dark">
-            <h1 class="text-center text-light">Welcome to the Dashboard</h1>
+        <div class="content">
+            <h1>Abhinesh Kumar</h1>
+            <h3>full-stack-developer and AI/ml</h3>
+            <div class="container">
+                <div class="image-container">
+                    <img
+                        src='{% static "img/about.jpg"%}'
+                        alt="A beautiful picture"
+                        class="animated-image"
+                    />
+                </div>
+                <p>This is the main content area.</p>
+            </div>
         </div>
     </main>
 </div>
