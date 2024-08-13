@@ -10,6 +10,11 @@
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
             rel="stylesheet"
         />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
+
         <link href='{% static "css/nav.css" %}' rel="stylesheet" />
         <link href='{% static "css/sidebar.css" %}' rel="stylesheet" />
         <link href='{% static "css/index.css" %}' rel="stylesheet" />
@@ -20,7 +25,9 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="{% url 'index' %}">My Portfolio</a>
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="{% static 'img/blog-1.jpg' %}" alt="logo" />
+            </a>
             <button
                 class="navbar-toggler"
                 type="button"
@@ -62,9 +69,12 @@
                     <h3>Contact Us</h3>
                     <p>
                         Email:
-                        <a href="mailto:your-email@example.com"
-                            >your-email@example.com</a
+                        <a
+                            href="mailto:your-email@example.com"
+                            class="social-icon"
+                            >deepabhineshacp@gmail.com</a
                         >
+                        <i class="fas fa-envelope"></i>
                     </p>
                 </div>
                 <div class="footer-section">
@@ -74,33 +84,46 @@
                             <a
                                 href="https://facebook.com"
                                 target="_blank"
-                                class="social-icon facebook"
+                                class="social-icon"
                                 >Facebook</a
                             >
+                            <i class="fab fa-facebook"></i>
                         </li>
                         <li>
                             <a
                                 href="https://twitter.com"
                                 target="_blank"
-                                class="social-icon twitter"
+                                class="social-icon"
                                 >Twitter</a
                             >
+                            <i class="fab fa-twitter"></i>
                         </li>
                         <li>
                             <a
                                 href="https://linkedin.com"
                                 target="_blank"
-                                class="social-icon linkedin"
+                                class="social-icon"
                                 >LinkedIn</a
                             >
+                            <i class="fab fa-linkedin"></i>
                         </li>
                         <li>
                             <a
                                 href="https://instagram.com"
                                 target="_blank"
-                                class="social-icon instagram"
+                                class="social-icon"
                                 >Instagram</a
                             >
+                            <i class="fab fa-instagram"></i>
+                        </li>
+                        <li>
+                            <a
+                                href="https://github.com/Abhisingh980"
+                                target="_blank"
+                                class="social-icon"
+                                >GitHub</a
+                            >
+                            <i class="fab fa-github"></i>
                         </li>
                     </ul>
                 </div>

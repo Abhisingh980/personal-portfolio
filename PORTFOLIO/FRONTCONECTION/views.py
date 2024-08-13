@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from . import data_git#
+from .models import Project
 
 # Create your views here.
 #
@@ -13,7 +15,12 @@ def contact(request):
     return render(request, 'contact.html')
 
 def projects(request):
-    return render(request, 'projects.html')
+    data_git.main()
+    projects = Project.objects.all()
+    if len(projects) == 0:
+        return render(request, 'projects.html')
+
+    return render(request, 'projects.html', {'projects': projects} )
 
 def services(request):
     return render(request, 'service.html')
