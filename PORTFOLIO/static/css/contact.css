@@ -120,3 +120,40 @@ body {
 .btn-submit:focus {
     outline: none;
 }
+/* Container for messages */
+.message-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* General message styling */
+.message {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    line-height: 1.5;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    font-family: "Arial", sans-serif;
+}
+
+/* Success message */
+.message.success {
+    background-color: #d4edda;
+    color: #3006bd;
+    border: 1px solid #c3e6cb;
+}
+
+/* Error message */
+.message.error {
+    background-color: #f8d7da;
+    color: #f71505;
+    border: 1px solid #f5c6cb;
+}
+.intl-tel-input {
+    width: 100%;
+}

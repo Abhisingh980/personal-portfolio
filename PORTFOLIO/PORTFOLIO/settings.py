@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+# chwc eyko ndng jtib
 from pathlib import Path
 import os
 
@@ -28,6 +28,14 @@ GITACCESSTOKEN = str(os.environ.get('GITHUBACCESSTOKEN'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Your SMTP server (e.g., smtp.gmail.com)
+EMAIL_HOST_USER = 'kr.abhinesh147@gmail.com'  # Your email address
+EMAIL_HOST_PASSWORD = 'chwceykondngjtib'  # Your email password
+EMAIL_PORT = 587  # Port for the SMTP server (e.g., 587 for TLS, 465 for SSL)
+EMAIL_USE_TLS = True  # Set to True for TLS, False for SSL
+EMAIL_USE_SSL = False  # Set to True for SSL, False for TLS
+
 
 ALLOWED_HOSTS = []
 

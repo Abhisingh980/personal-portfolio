@@ -8,10 +8,10 @@ import os
 
 
 def get_repositories(token):
-    print(token)
+    #print(token)
     git = Github(token)
     user = git.get_user()
-    print(user.login)
+    #print(user.login)
 
     repos = []
 
@@ -26,7 +26,7 @@ def get_repositories(token):
                 'readme': text
 
             })
-            print('helo try')
+            #print('helo try')
         except:
             readme = None
             repos.append({
@@ -35,23 +35,25 @@ def get_repositories(token):
                 'html_url': repo.html_url,
                 'readme': readme
             })
-            print('helo except')
+            #print('helo except')
 
     #save in models Project
+    #some checks wile send a data to the models
+
     for repo in repos:
-        project = Project(
+        project, created = Project.objects.get_or_create(
             title=repo['name'],
             description=repo['description'],
             html_url=repo['html_url'],
             readme=repo['readme']
         )
-        project.save()
-    print(len(repos))
+        if created:
+            project.save()
 
 
 def main():
     token = settings.GITACCESSTOKEN
-    #get_repositories(token)
+    get_repositories(token)
 
 if __name__ == "__main__":
     main()
