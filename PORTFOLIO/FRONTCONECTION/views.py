@@ -1,14 +1,31 @@
 from django.shortcuts import render, redirect
 from . import data_git
-from .models import Project, Contact
+from .models import Project, Contact, corosel, posts, services_des
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
+from . import webscriping
+
+
+
+
+
 
 # Create your views here.
 #
+
+def crosol_view():
+    return corosel.objects.all()
+
+
 def index(request):
-    return render(request, 'index.html')
+    webscriping.get_posts()
+    corosel_data = crosol_view()#item from database
+    context = {
+        'posts': posts.objects.all(),
+        'carousel': corosel_data,
+    }
+    return render(request, 'index.html', context)
 
 def about(request):
     return render(request, 'about.html')
@@ -21,45 +38,34 @@ def contact(request):
         email = request.POST['email']
         subject = request.POST['subject']
         position = request.POST['position']
-        phone_number = request.POST['phone']
         message = request.POST['message']
+        phone_number = request.POST['phone']
 
-        contact = Contact(name=name,
+        contact = Contact(
+            name=name,
             email=email,
             subject=subject,
             position=position,
-            phone_number=phone_number,
             message=message)
-        # contct save in models the display the message to the user in page
-
-
-        if len(name) < 2 or len(email) < 3 or len(subject) < 4 or len(message) < 4:
-            messages.error(request, 'Please fill the form correctly')
+        try:
+            send_mail(
+                subject='This is computer generated mail for response',
+                message=f'Hello {name},\n\nThank you for contacting us. We will get back to you as soon as possible.\n\nBest Regards,\n\n{settings.EMAIL_HOST_USER}',
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=[email],
+                fail_silently=False
+            )
+            contact.save()
+            messages.success(request, 'Your message has been sent successfully')
             return redirect('contact')
 
-        else:
-            contact.save()
+        except Exception as e:
+            messages.error(request, 'An error occurred while sending your message. Please try again later')
+            return redirect('contact')
 
-
-            # send mail to the conected persone to send the who is the fill the form
-            try:
-                message = f'''Name: {name}\nEmail: {email}\nSubject: {subject}\nPosition: {position}\nPhone: {phone_number}\nMessage: {message}
-                 Thank you for contacting us. We will get back to you as soon as possible.
-                '''
-                send_mail(
-                    subject='Response auto genrated from the website',
-                    message=message,
-                    from_email=settings.EMAIL_HOST_USER,
-                    recipient_list=[email,],
-                    fail_silently=False
-                )
-                messages.success(request, 'Your message has been sent successfully')
-                return redirect('contact')
-            except Exception as e:
-                print(e)
-                messages.error(request, 'Mail sending failed')
-                return redirect('contact')
     return render(request, 'contact.html')
+
+
 
 def projects(request):
     data_git.main()
@@ -70,4 +76,10 @@ def projects(request):
     return render(request, 'projects.html', {'projects': projects} )
 
 def services(request):
-    return render(request, 'service.html')
+    service=services_des.objects.all()
+    if len(service) == 0:
+        return render(request, 'service.html')
+    context = {
+        'services': service
+    }
+    return render(request, 'service.html', context)

@@ -41,15 +41,16 @@ def get_repositories(token):
     #some checks wile send a data to the models
 
     for repo in repos:
-        project, created = Project.objects.get_or_create(
+        obj, created = Project.objects.get_or_create(
             title=repo['name'],
             description=repo['description'],
             html_url=repo['html_url'],
             readme=repo['readme']
-        )
+                )
         if created:
-            project.save()
-
+            obj.save()
+        else:
+            continue
 
 def main():
     token = settings.GITACCESSTOKEN

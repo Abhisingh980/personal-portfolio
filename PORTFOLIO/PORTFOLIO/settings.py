@@ -28,6 +28,9 @@ GITACCESSTOKEN = str(os.environ.get('GITHUBACCESSTOKEN'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  # Your SMTP server (e.g., smtp.gmail.com)
 EMAIL_HOST_USER = 'kr.abhinesh147@gmail.com'  # Your email address
@@ -50,6 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'livereload',
     'django.contrib.staticfiles',
+
+     "phonenumber_field",
 
 ]
 
@@ -141,6 +146,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

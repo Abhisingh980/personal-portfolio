@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from FRONTCONECTION.views import *
 from django.urls import include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,3 +29,6 @@ urlpatterns = [
     path('projects/', projects, name='projects'),
     path('service/', services, name='service'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
