@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+# chwc eyko ndng jtib
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,8 +23,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-h+l)b)&iwsw_c(shqy2f96h#3o&hjfz@y9v*%86vh(!gxw=irr'
 
+GITACCESSTOKEN = str(os.environ.get('GITHUBACCESSTOKEN'))
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Your SMTP server (e.g., smtp.gmail.com)
+EMAIL_HOST_USER = 'kr.abhinesh147@gmail.com'  # Your email address
+EMAIL_HOST_PASSWORD = 'chwceykondngjtib'  # Your email password
+EMAIL_PORT = 587  # Port for the SMTP server (e.g., 587 for TLS, 465 for SSL)
+EMAIL_USE_TLS = True  # Set to True for TLS, False for SSL
+EMAIL_USE_SSL = False  # Set to True for SSL, False for TLS
+
 
 ALLOWED_HOSTS = []
 
@@ -36,8 +52,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'livereload',
+    'django.contrib.staticfiles',
+
+     "phonenumber_field",
+
 ]
 
 EXTAR_APPS = [
@@ -54,6 +73,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'livereload.middleware.LiveReloadScript',
 ]
 
 ROOT_URLCONF = 'PORTFOLIO.urls'
@@ -123,6 +143,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
