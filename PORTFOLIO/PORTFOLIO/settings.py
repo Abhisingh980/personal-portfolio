@@ -27,7 +27,8 @@ GITACCESSTOKEN = str(os.environ.get('GITHUBACCESSTOKEN'))
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
 
 
